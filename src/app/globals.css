@@ -20,18 +20,21 @@
     --input: #e2e8f0;
 
     --primary: #9c27b0;
+    --primary-dark: #6d1b7b;
     --primary-foreground: #ffffff;
 
     --secondary: #651fff;
+    --secondary-dark: #4615b2;
     --secondary-foreground: #ffffff;
 
     --accent: #f5f5f5;
     --accent-foreground: #651fff;
 
     --destructive: #d32f2f;
+    --destructive-dark: #932020;
     --destructive-foreground: #ffffff;
 
-    --ring: #b884c1;
+    --ring: #4615b2;
 
     --radius: 0.5rem;
   }

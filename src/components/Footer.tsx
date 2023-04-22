@@ -54,21 +54,21 @@ const Footer = () => {
 	return (
 		<footer className="mt-auto bg-primary">
 			<div className="max-w-[85rem] py-2 px-4 sm:px-6 lg:px-8 mx-auto">
-				<div className="grid grid-cols-1 md:grid-cols-3 items-center gap-5 text-center">
+				<div className="flex items-center gap-5 text-center">
 					<div>
 						<Link
-							className="flex-none text-xl font-semibold text-black dark:text-white"
+							className="w-fit flex-none text-xl font-semibold focus-visible:outline-ring"
 							href="/"
 							aria-label="Brand"
 						>
 							<Logo />
 						</Link>
 					</div>
-					<ul className="text-center">
+					<ul className="text-center mx-auto">
                         {footerLinks.map(link => (
                             <li key={link.id} className="inline-block relative pr-8 last:pr-0 last-of-type:before:hidden before:absolute before:top-1/2 before:right-3 before:-translate-y-1/2 before:content-['/'] before:text-gray-300 dark:before:text-gray-600">
                                 <Link
-                                    className="inline-flex gap-x-2 text-sm text-primary-foreground hover:underline font-medium"
+                                    className="inline-flex gap-x-2 text-sm text-primary-foreground hover:underline font-medium focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-primary-foreground/20 rounded"
                                     href={link.href}
                                 >
                                     {link.content}

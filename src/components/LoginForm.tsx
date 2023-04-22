@@ -1,16 +1,20 @@
 "use client";
 
-import supabase from "@/lib/supabase";
+import { clientSupabase } from "@/lib/supabase";
 import React from "react";
 import { Button } from "./ui/button";
 
 
 
 const LoginForm = () => {
+
 	const handleLogin = async (provider: "google" | "github") => {
-		const { error } = await supabase.auth.signInWithOAuth({
+		
+		const { error } = await clientSupabase.auth.signInWithOAuth({
 			provider,
 		});
+
+
 		if (error) {
 			// TODO: add toast
 			console.log(error);

@@ -22,14 +22,17 @@ module.exports = {
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
+          dark: "var(--primary-dark)"
         },
         secondary: {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
+          dark: "var(--secondary-dark)"
         },
         destructive: {
           DEFAULT: "var(--destructive)",
           foreground: "var(--destructive-foreground)",
+          dark: "var(--destructive-dark)"
         },
         muted: {
           DEFAULT: "var(--muted)",

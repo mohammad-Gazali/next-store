@@ -1,5 +1,6 @@
-import { supabase } from "./client";
+import { supabase as clientSupabase } from "./normal_client";
 
 
-
-export default supabase
+export {
+    clientSupabase,
+}
