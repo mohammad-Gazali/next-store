@@ -3,25 +3,20 @@ import { cookies, headers } from "next/headers";
 import Link from "next/link";
 import Logo from "./Logo";
 import AuthButton from "./AuthButton";
+import { Route } from "@/types/app";
+import DropDown from "./ui/dropdown";
+import { Home } from "lucide-react";
 
 
-
-
-interface Route {
-    id: number;
-    href: string;
-    content: string;
-}
 
 const routes: Route[] = [
     {
         id: 1,
         href: "/",
-        content: "Home"
+        content: "Home",
+		icon: <Home className="w-4 h-4" />,
     }
 ];
-
-
 
 const Navbar = async () => {
 
@@ -42,12 +37,14 @@ const Navbar = async () => {
 			>
 				<div className="flex items-center justify-between">
 					<Link
-						className="flex-none text-xl flex items-center gap-3 font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-primary-foreground/20 rounded"
+						className="flex-none sm:text-xl text-lg flex items-center gap-3 font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-primary-foreground/20 rounded"
 						href="#"
 					>
-						<Logo /> Next Store
+						<Logo className="sm:w-12 sm:h-12 w-8 h-8" /> Next Store
 					</Link>
-					<div className="sm:hidden">{/* // TODO: Add Collapse */}</div>
+					<div className="sm:hidden">
+						<DropDown routes={routes} isNav isAuth={Boolean(user)}/>
+					</div>
 				</div>
 				<ul
 					id="navbar-primary"

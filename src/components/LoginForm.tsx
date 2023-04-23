@@ -22,7 +22,7 @@ const LoginForm = () => {
 	};
 
 	return (
-		<div className="flex flex-col mx-auto my-20 gap-5 border px-6 py-6 rounded w-full max-w-lg">
+		<div className="flex flex-col mx-auto my-20 gap-5 sm:border sm:p-6 p-4 rounded w-full max-w-lg">
 			<h3 className="text-4xl font-bold mb-5 uppercase text-secondary text-center">Login</h3>
 			<Button
 				className="gap-2 bg-gray-100 hover:bg-gray-200 text-foreground transition-all"

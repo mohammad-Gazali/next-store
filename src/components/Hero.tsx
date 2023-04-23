@@ -7,15 +7,15 @@ const Hero = () => {
 	return (
 		<div className="max-w-[85rem] mx-auto lg:px-8 sm:px-6 px-4 py-10 flex items-center justify-between flex-wrap gap-8">
 			<div className="max-w-lg">
-				<h1 className="font-bold lg:text-3xl md:text-2xl text-xl">
+				<h1 className="font-bold lg:text-3xl text-2xl">
 					Start your journey with{" "}
 					<span className="text-secondary">Next Store</span>
 				</h1>
-				<p className="mt-3 text-lg">
+				<p className="mt-3 lg:text-lg sm:text-base text-sm">
 					Best Store For All Products: Clothes, Foods, Electronics, Books, Toys
 					And More.
 				</p>
-				<div className="mt-7 flex flex-wrap gap-3 w-full">
+				<div className="mt-7 sm:flex hidden flex-wrap gap-3 w-full">
 					<Link
 						href="#"
 						className={buttonVariants({ variant: "secondary" })}

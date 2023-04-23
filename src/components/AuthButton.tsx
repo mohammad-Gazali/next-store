@@ -2,11 +2,14 @@
 
 import { clientSupabase } from "@/lib/supabase";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const AuthButton = ({ isAuth }: { isAuth: boolean }) => {
 
   const [isAuthState, setIsAuthState] = useState(isAuth);
+
+  const router = useRouter();
 
   useEffect(() => {
     clientSupabase.auth.getUser().then(({data: { user }}) =>{
@@ -21,7 +24,7 @@ const AuthButton = ({ isAuth }: { isAuth: boolean }) => {
         tabIndex={0}
         onClick={async () => {
           await clientSupabase.auth.signOut();
-          location.replace("/login");
+          router.replace("/login");
         }}
       >
         Log Out

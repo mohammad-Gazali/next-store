@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
 	return (
 		<>
-			{/* @ts-ignore */}
+			{/* @ts-ignore Server Component */}
 			<Navbar />
 			{children}
 			<Footer />

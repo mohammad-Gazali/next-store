@@ -53,9 +53,9 @@ const footerLinks: FooterLink[] = [
 const Footer = () => {
 	return (
 		<footer className="mt-auto bg-primary">
-			<div className="max-w-[85rem] py-2 px-4 sm:px-6 lg:px-8 mx-auto">
-				<div className="flex items-center gap-5 text-center">
-					<div>
+			<div className="max-w-[85rem] sm:py-2 py-6 px-4 sm:px-6 lg:px-8 mx-auto">
+				<div className="flex flex-wrap justify-between items-center gap-5 text-center">
+					<div className="sm:block hidden">
 						<Link
 							className="w-fit flex-none text-xl font-semibold focus-visible:outline-ring"
 							href="/"
@@ -64,7 +64,7 @@ const Footer = () => {
 							<Logo />
 						</Link>
 					</div>
-					<ul className="text-center mx-auto">
+					<ul className="text-center">
                         {footerLinks.map(link => (
                             <li key={link.id} className="inline-block relative pr-8 last:pr-0 last-of-type:before:hidden before:absolute before:top-1/2 before:right-3 before:-translate-y-1/2 before:content-['/'] before:text-gray-300 dark:before:text-gray-600">
                                 <Link

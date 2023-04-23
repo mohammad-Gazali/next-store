@@ -1,4 +1,4 @@
-import { Hero } from "@/components"
+import { Hero, ProductList } from "@/components"
 
 export const metadata = {
   title: "Home | Next Store",
@@ -9,6 +9,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      {/* @ts-ignore Server Component */}
+      <ProductList />
     </main>
   )
 }
