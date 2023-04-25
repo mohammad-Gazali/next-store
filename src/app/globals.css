@@ -35,6 +35,10 @@
     --destructive-dark: #932020;
     --destructive-foreground: #ffffff;
 
+    --success: #2e7d32;
+    --success-dark: #1b5e20;
+    --success-foreground: #ffffff;
+
     --ring: #4615b2;
 
     --radius: 0.5rem;

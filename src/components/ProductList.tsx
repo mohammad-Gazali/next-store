@@ -1,23 +1,19 @@
-import { ProductWithImages } from "@/types/db";
-import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { cookies, headers } from "next/headers";
+import { ProductWithImages, ProductImage } from "@/types/db";
 import ProductCard from "./ProductCard";
 
+
+
 const ProductList = async () => {
-	const supabase = createServerComponentSupabaseClient({
-		cookies,
-		headers,
+
+	const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/product`, {
+		cache: "no-store"
 	});
 
-	const { data: dataProducts } = await supabase.from("products").select().gt('quantity', '0');
-
-	const { data: dataImages } = await supabase
-		.from("products-images-table ")
-		.select();
+	const { dataProducts, dataImages } = await response.json()
 
 	// @ts-ignore
 	const finalData: ProductWithImages[] = dataProducts?.map((product) => {
-		const productImages = dataImages?.filter((image) => {
+		const productImages = dataImages?.filter((image: ProductImage) => {
 			return image.product === product.id;
 		});
 

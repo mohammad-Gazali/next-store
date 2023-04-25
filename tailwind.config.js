@@ -34,6 +34,11 @@ module.exports = {
           foreground: "var(--destructive-foreground)",
           dark: "var(--destructive-dark)"
         },
+        success: {
+          DEFAULT: "var(--success)",
+          foreground: "var(--success-foreground)",
+          dark: "var(--success-dark)"
+        },
         muted: {
           DEFAULT: "var(--muted)",
           foreground: "var(--muted-foreground)",

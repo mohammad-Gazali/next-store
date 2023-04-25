@@ -8,7 +8,7 @@ export interface Product {
     quantity: number;
 }
 
-export interface Image {
+export interface ProductImage {
     id: number;
     created_at: string;
     product: string;
@@ -18,4 +18,25 @@ export interface Image {
 
 export interface ProductWithImages extends Product {
     images: Image[];
+}
+
+// TODO: fix these types
+export interface Review {
+    id: number;
+    created_at: string;
+    updated_at: string;
+    user: string;
+    product: string;
+    value: number;
+    text: string;
+}
+
+export interface ReviewUser {
+    name: string;
+    email: string;
+    avatar_url: string;
+}
+
+export interface ReviewWithUser extends Review {
+    user: ReviewUser
 }

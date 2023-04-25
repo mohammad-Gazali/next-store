@@ -4,7 +4,11 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: [process.env.OBJECT_STORAGE_URL]
+    domains: [
+      process.env.OBJECT_STORAGE_URL,
+      "lh3.googleusercontent.com",
+      "avatars.githubusercontent.com"
+    ]
   }
 }
 

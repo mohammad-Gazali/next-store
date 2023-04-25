@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import LoginForm from "./LoginForm";
 import ProductList from "./ProductList";
+import ProductDetailsActions from "./ProductDetailsActions";
 
 
 export {
@@ -12,5 +13,6 @@ export {
     Footer,
     Hero,
     LoginForm,
-    ProductList
+    ProductList,
+    ProductDetailsActions
 }
