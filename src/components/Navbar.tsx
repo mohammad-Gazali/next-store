@@ -4,8 +4,8 @@ import Link from "next/link";
 import Logo from "./Logo";
 import AuthButton from "./AuthButton";
 import { Route } from "@/types/app";
-import DropDown from "./ui/dropdown";
-import { Home } from "lucide-react";
+import DropDown from "./Dropdown";
+import { Home, ShoppingCart } from "lucide-react";
 
 
 
@@ -15,7 +15,13 @@ const routes: Route[] = [
         href: "/",
         content: "Home",
 		icon: <Home className="w-4 h-4" />,
-    }
+    },
+	{
+		id: 2,
+		href: "/client/cart",
+		content: "Cart",
+		icon: <ShoppingCart  className="w-4 h-4"/>
+	}
 ];
 
 const Navbar = async () => {

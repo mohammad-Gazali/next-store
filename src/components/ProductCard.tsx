@@ -18,6 +18,7 @@ const ProductCard = ({ product }: { product: ProductWithImages }) => {
 				    className="w-full h-72 rounded-t-xl object-cover"
 				    src={mainImage.image_url}
 				    alt={product.name}
+					quality={100}
                     width={100}
                     height={100}
 		    	/>

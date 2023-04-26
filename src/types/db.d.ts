@@ -14,6 +14,7 @@ export interface ProductImage {
     product: string;
     image_url: string;
     is_main: boolean;
+    is_featured: boolean;
 }
 
 export interface ProductWithImages extends Product {
