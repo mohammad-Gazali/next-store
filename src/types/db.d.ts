@@ -20,7 +20,7 @@ export interface ProductWithImages extends Product {
     images: Image[];
 }
 
-// TODO: fix these types
+
 export interface Review {
     id: number;
     created_at: string;

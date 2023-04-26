@@ -16,7 +16,6 @@ const LoginForm = () => {
 
 
 		if (error) {
-			// TODO: add toast
 			console.log(error);
 		}
 	};

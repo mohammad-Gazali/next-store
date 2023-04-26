@@ -12,13 +12,17 @@ import { Label } from "@/components/ui/label";
 import { Plus, PlusCircle } from "lucide-react";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
+import { useToast } from "./ui/use-toast";
+import { useRouter } from "next/navigation";
 
 
 const AddReviewDialog = ({ product_id }: { product_id: string }) => {
 
     const [openState, setOpenState] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
 
+	const { toast } = useToast();
 
     const handleAddingReview = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -29,7 +33,7 @@ const AddReviewDialog = ({ product_id }: { product_id: string }) => {
 
         try {
 
-            await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/reviews/add`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/reviews/add`, {
                 method: "POST",
                 body: JSON.stringify({
                     text: form.get("text"),
@@ -38,16 +42,26 @@ const AddReviewDialog = ({ product_id }: { product_id: string }) => {
                 }),
             })
 
+			const data = await response.json()
+
+			if (response.status !== 200) {
+				toast({
+					variant: "destructive",
+					title: "Uh oh! Something went wrong.",
+					description: data.message,
+				})
+			} else {
+				router.refresh()
+			}
+			
         } catch (error) {
-            
-            // TODO: add toast
+
             console.log(error)
 
         } finally {
 
-            setOpenState(false);
             setIsLoading(false);
-
+			setOpenState(false)
         }
     }
 

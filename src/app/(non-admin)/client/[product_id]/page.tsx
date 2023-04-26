@@ -1,9 +1,8 @@
-import { ProductDetailsActions } from "@/components";
+import { ProductDetailsActions, ReviewCard } from "@/components";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cookies, headers } from "next/headers";
 import { ProductImage, Product, ReviewWithUser } from "@/types/db";
 import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { format } from "date-fns";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -271,54 +270,5 @@ const page = async ({
 	);
 };
 
-// Todo: handle case for your review of the product
-const ReviewCard = ({ review, current_user_email }: { review: ReviewWithUser, current_user_email: string }) => {
-	return (
-		<div className="flex flex-col gap-2 bg-muted rounded-lg p-3">
-			<div className="flex gap-2 items-start">
-				<div className="flex-shrink-0">
-					<Image
-						className="w-10 h-10 rounded-full"
-						src={review.user.avatar_url || "/avatar-placeholder.png"}
-						alt={review.user.name}
-						quality={100}
-						width={40}
-						height={40}
-					/>
-				</div>
-				<div className="flex-1 min-w-0">
-					<p className="text-sm font-medium truncate">
-						{review.user.name}{" "}
-						{
-							review.user.email 
-							?
-							<span className="text-primary sm:inline-block hidden">
-								({review.user.email})
-							</span>
-							:
-							""
-						}
-					</p>
-					<p className="text-sm text-muted-dark truncate"></p>
-					<p className="text-sm text-muted-dark truncate">
-						{formatDateReviewCard(review.updated_at)}
-					</p>
-				</div>
-				<div className="flex items-center text-base font-semibold">
-					{review.value === 1 ? "one star" : `${review.value} stars`}
-				</div>
-			</div>
-			<div className="flex items-center text-sm px-2">{review.text}</div>
-			<p className="text-orange-600 font-bold">
-				TODO: {review.user.email === current_user_email ? "Your Review" : "Not Yours"}
-			</p>
-		</div>
-	);
-};
-
-function formatDateReviewCard(date: string) {
-	const timestamp = new Date(date).getTime();
-	return format(timestamp, "yyyy-MM-dd");
-}
 
 export default page;

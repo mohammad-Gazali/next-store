@@ -5,6 +5,8 @@ import Hero from "./Hero";
 import LoginForm from "./LoginForm";
 import ProductList from "./ProductList";
 import ProductDetailsActions from "./ProductDetailsActions";
+import Providers from "./Providers";
+import ReviewCard from "./ReviewCard";
 
 
 export {
@@ -14,5 +16,7 @@ export {
     Hero,
     LoginForm,
     ProductList,
-    ProductDetailsActions
+    ProductDetailsActions,
+    Providers,
+    ReviewCard
 }
