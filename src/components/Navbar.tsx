@@ -6,6 +6,7 @@ import AuthButton from "./AuthButton";
 import { Route } from "@/types/app";
 import DropDown from "./Dropdown";
 import { Home, ShoppingCart } from "lucide-react";
+import NavLink from "./NavLink";
 
 
 
@@ -20,7 +21,8 @@ const routes: Route[] = [
 		id: 2,
 		href: "/client/cart",
 		content: "Cart",
-		icon: <ShoppingCart  className="w-4 h-4"/>
+		icon: <ShoppingCart  className="w-4 h-4"/>,
+		authOnly: true,
 	}
 ];
 
@@ -34,6 +36,7 @@ const Navbar = async () => {
 
 	const { data: { user } } = await supabase.auth.getUser();
 
+	const isAuth = Boolean(user?.id);
 
 	return (
 		<header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-primary shadow text-sm py-3">
@@ -57,15 +60,7 @@ const Navbar = async () => {
 					className="sm:flex hidden items-center gap-5 overflow-hidden transition-all duration-300"
 				>
 					{routes.map((route) => {
-						return <li key={route.id} className="flex gap-5 flex-row items-center justify-end">
-							<Link
-								className="font-medium text-base text-muted hover:text-primary-foreground transition-all focus-visible:outline-none focus-visible:ring focus-visible:ring-offset-2 focus-visible:ring-primary-foreground/20 rounded m-1"
-								href={route.href}
-								aria-current="page"
-							>
-								{route.content}
-							</Link>
-						</li>
+						return <NavLink route={route} isAuth={isAuth} key={route.id} />
 					})}
 					<AuthButton isAuth={Boolean(user)} />
 				</ul>

@@ -2,27 +2,30 @@
 
 import { clientSupabase } from "@/lib/supabase";
 import React from "react";
-import { Button } from "./ui/button";
-
-
+import { Button, buttonVariants } from "./ui/button";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
 
+	const router = useRouter();
+
 	const handleLogin = async (provider: "google" | "github") => {
-		
 		const { error } = await clientSupabase.auth.signInWithOAuth({
 			provider,
 		});
 
-
 		if (error) {
 			console.log(error);
 		}
+		router.refresh();
 	};
 
 	return (
 		<div className="flex flex-col mx-auto my-20 gap-5 sm:border sm:p-6 p-4 rounded w-full max-w-lg">
-			<h3 className="text-4xl font-bold mb-5 uppercase text-secondary text-center">Login</h3>
+			<h3 className="text-4xl font-bold mb-5 uppercase text-secondary text-center">
+				Login
+			</h3>
 			<Button
 				className="gap-2 bg-gray-100 hover:bg-gray-200 text-foreground transition-all"
 				onClick={() => handleLogin("google")}
@@ -72,6 +75,26 @@ const LoginForm = () => {
 				</svg>
 				Login With Github
 			</Button>
+			<Link
+				className={buttonVariants({ variant: "link", className: "mt-6 flex items-center gap-2" })}
+				href="/"
+			>
+				<svg
+					className="w-2.5 h-2.5"
+					width="16"
+					height="16"
+					viewBox="0 0 16 16"
+					fill="none"
+				>
+					<path
+						d="M11.2792 1.64001L5.63273 7.28646C5.43747 7.48172 5.43747 7.79831 5.63273 7.99357L11.2792 13.64"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeLinecap="round"
+					/>
+				</svg>
+				Back To Home
+			</Link>
 		</div>
 	);
 };

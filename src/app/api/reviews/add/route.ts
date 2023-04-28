@@ -7,11 +7,12 @@ import z from "zod";
 
 export async function POST(req: Request) {
 
+
     const supabase = createServerComponentSupabaseClient({ cookies, headers });
 
     try {
         const user = await supabase.auth.getUser();
-        
+
         if (!user.data.user?.id) {
             return NextResponse.json({
                 message: "Forbidden"

@@ -21,7 +21,7 @@ export default function NotFound() {
                 </header>
 
                 <div className="text-center py-10 px-4 sm:px-6 lg:px-8">
-                    <h1 className="block text-7xl font-bold text-gray-800 sm:text-9xl dark:text-white">
+                    <h1 className="block sm:text-9xl text-7xl font-bold">
                         404
                     </h1>
                     <p className="mt-3 text-muted-dark">

@@ -7,6 +7,7 @@ import ProductList from "./ProductList";
 import ProductDetailsActions from "./ProductDetailsActions";
 import Providers from "./Providers";
 import ReviewCard from "./ReviewCard";
+import ProductsListCart from "./ProductsListCart";
 
 
 export {
@@ -18,5 +19,6 @@ export {
     ProductList,
     ProductDetailsActions,
     Providers,
-    ReviewCard
+    ReviewCard,
+    ProductsListCart
 }

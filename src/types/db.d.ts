@@ -18,9 +18,12 @@ export interface ProductImage {
 }
 
 export interface ProductWithImages extends Product {
-    images: Image[];
+    images: ProductImage[];
 }
 
+export interface ProductWithMainImage extends Product {
+    image: ProductImage;
+}
 
 export interface Review {
     id: number;
@@ -40,4 +43,11 @@ export interface ReviewUser {
 
 export interface ReviewWithUser extends Review {
     user: ReviewUser
+}
+
+export interface Cart {
+    id: string;
+    created_at: string;
+    user: string;
+    products: string[];
 }

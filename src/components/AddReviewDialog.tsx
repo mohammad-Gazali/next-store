@@ -47,7 +47,7 @@ const AddReviewDialog = ({ product_id }: { product_id: string }) => {
 			if (response.status !== 200) {
 				toast({
 					variant: "destructive",
-					title: "Uh oh! Something went wrong.",
+					title: "Error",
 					description: data.message,
 				})
 			} else {
@@ -85,6 +85,7 @@ const AddReviewDialog = ({ product_id }: { product_id: string }) => {
 							<Textarea id="text" name="text" className="col-span-3" />
 						</div>
 						<div className="flex flex-col items-start gap-2">
+							{/* // TODO: don't forget to convert it to start input */}
 							<Label htmlFor="value" className="text-right">
 								Value
 							</Label>
