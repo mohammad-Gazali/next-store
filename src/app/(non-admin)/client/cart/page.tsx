@@ -5,9 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cookies, headers } from "next/headers";
 import { Frown } from "lucide-react";
-import { ProductsListCart } from "@/components";
-
-
+import { CheckoutButton, ProductsListCart } from "@/components";
 
 export const metadata = {
 	title: "Cart | Next Store",
@@ -40,9 +38,14 @@ const page = async () => {
 
 	const user_cart = data[data.length - 1];
 
-  if (!user_cart || user_cart.products.length === 0) {
-    return <main className="flex items-center justify-center gap-3 sm:text-3xl text-2xl font-bold h-[80vh] text-secondary">No Products In The Cart Currently <Frown strokeWidth={2} className="w-10 h-10" /></main>
-  }
+	if (!user_cart || user_cart.products.length === 0) {
+		return (
+			<main className="flex items-center justify-center gap-3 sm:text-3xl text-2xl font-bold h-[80vh] text-secondary">
+				No Products In The Cart Currently{" "}
+				<Frown strokeWidth={2} className="w-10 h-10" />
+			</main>
+		);
+	}
 
 	const { data: products } = await supabase
 		.from("products")
@@ -63,7 +66,8 @@ const page = async () => {
 		return { ...product, image: productImage };
 	});
 
-	const total_price = products
+	// @ts-ignore
+	const total_price: number = products
 		?.reduce((preValue, currentProduct) => preValue + currentProduct.price, 0)
 		?.toFixed(2);
 
@@ -85,34 +89,18 @@ const page = async () => {
 				<div className="border-t border-muted px-4 py-6 sm:px-6 flex flex-col">
 					<div className="flex justify-between text-base font-medium">
 						<p>Subtotal</p>
-						<p>{total_price}$</p>
+						<p>{Math.round(total_price)}$</p>
 					</div>
 					<p className="mt-0.5 text-sm text-muted-dark">
 						Shipping and taxes calculated at checkout.
 					</p>
-
-					<Link
-						href="#"
-						className={buttonVariants({
-							variant: "secondary",
-							className: "w-full max-w-lg self-center mt-6",
-							size: "lg",
-						})}
-					>
-						Checkout
-					</Link>
-
+					<CheckoutButton products={finalData} />
 					<div className="mt-6 flex gap-2 justify-center items-center text-center text-sm text-muted-dark">
-						<p>
-							or
-						</p>
-            <Link
-              href="/"
-              className={buttonVariants({ variant: "link" })}
-            >
-              Continue Shopping
-              <span aria-hidden="true"> &rarr;</span>
-            </Link>
+						<p>or</p>
+						<Link href="/" className={buttonVariants({ variant: "link" })}>
+							Continue Shopping
+							<span aria-hidden="true"> &rarr;</span>
+						</Link>
 					</div>
 				</div>
 			</div>

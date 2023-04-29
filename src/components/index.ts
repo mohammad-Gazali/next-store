@@ -8,6 +8,7 @@ import ProductDetailsActions from "./ProductDetailsActions";
 import Providers from "./Providers";
 import ReviewCard from "./ReviewCard";
 import ProductsListCart from "./ProductsListCart";
+import CheckoutButton from "./CheckoutButton";
 
 
 export {
@@ -20,5 +21,6 @@ export {
     ProductDetailsActions,
     Providers,
     ReviewCard,
-    ProductsListCart
+    ProductsListCart,
+    CheckoutButton
 }
